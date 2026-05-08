@@ -1,0 +1,133 @@
+Target: whois itsecgames.com
+
+IP: 31.3.96.40 | dig whois itsecgames.com A +short
+HOST: 40.96.3.31.in-addr.arpa domain name pointer web.mmebvba.com. | ❯ host 31.3.96.40
+
+❯ shodan host 31.3.96.40
+31.3.96.40
+Hostnames:               web.mmebvba.com
+City:                    Amsterdam
+Country:                 Netherlands
+Organization:            XL Internet Services Amsterdam Network
+Updated:                 2026-05-06T16:52:09.267522
+Number of open ports:    3
+
+Ports:
+     22/tcp OpenSSH (6.7p1)
+     80/tcp Apache httpd
+	|-- HTTP title: MME | Security Audits & Training
+    443/tcp Apache httpd
+	|-- HTTP title: MME | Security Audits & Training
+	|-- Cert Issuer: CN=web.mmebvba.com
+	|-- Cert Subject: CN=web.mmebvba.com
+	|-- SSL Versions: -SSLv2, -SSLv3, -TLSv1.3, TLSv1, TLSv1.1, TLSv1.2
+
+❯ sslscan 31.3.96.40
+
+Version: 2.1.5
+OpenSSL 3.6.1 27 Jan 2026
+
+Connected to 31.3.96.40
+
+Testing SSL server 31.3.96.40 on port 443 using SNI name 31.3.96.40
+
+  SSL/TLS Protocols:
+SSLv2     disabled
+SSLv3     disabled
+TLSv1.0   enabled
+TLSv1.1   enabled
+TLSv1.2   enabled
+TLSv1.3   disabled
+
+  TLS Fallback SCSV:
+Server supports TLS Fallback SCSV
+
+  TLS renegotiation:
+Secure session renegotiation supported
+
+  TLS Compression:
+Compression disabled
+
+  Heartbleed:
+TLSv1.2 not vulnerable to heartbleed
+TLSv1.1 not vulnerable to heartbleed
+TLSv1.0 not vulnerable to heartbleed
+
+  Server Key Exchange Group(s):
+TLSv1.2  128 bits  secp256r1 (NIST P-256)
+
+  SSL Certificate:
+Signature Algorithm: sha256WithRSAEncryption
+RSA Key Strength:    2048
+
+Subject:  web.mmebvba.com
+Issuer:   web.mmebvba.com
+
+Not valid before: May 25 09:07:54 2015 GMT
+Not valid after:  May 22 09:07:54 2025 GMT
+
+❯ ./testssl.sh itsecgames.com
+
+Testing all IPv4 addresses (port 443): 31.3.96.40
+--------------------------------------------------------------
+ Start 2026-05-08 18:00:10        -->> 31.3.96.40:443 (itsecgames.com) <<--
+
+ rDNS (31.3.96.40):      web.mmebvba.com.
+ Service detected:       HTTP
+
+ Testing protocols via sockets except NPN+ALPN
+
+ SSLv2      not offered (OK)
+ SSLv3      not offered (OK)
+ TLS 1      not offered
+ TLS 1.1    not offered
+ TLS 1.2    offered (OK)
+ TLS 1.3    not offered and downgraded to a weaker protocol
+ QUIC       not offered or timed out
+ NPN/SPDY   not offered
+ ALPN/HTTP2 not offered
+
+  Testing cipher categories
+
+ NULL ciphers (no encryption)                      not offered (OK)
+ Anonymous NULL Ciphers (no authentication)        not offered (OK)
+ Export ciphers (w/o ADH+NULL)                     not offered (OK)
+ LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      not offered (OK)
+ Triple DES Ciphers / IDEA                         not offered
+ Obsoleted CBC ciphers (AES, ARIA etc.)            not offered
+ Strong encryption (AEAD ciphers) with no FS       not offered
+ Forward Secrecy strong encryption (AEAD ciphers)  offered (OK)
+
+  Testing vulnerabilities
+
+   ROBOT   Server does not support any cipher suites that use RSA key transport
+   BREACH (CVE-2013-3587) potentially NOT ok, "gzip" HTTP compression detected. - only supplied "/" tested
+                          Can be ignored for static pages or if no secrets in the page
+
+   RC4 (CVE-2013-2566, CVE-2015-2808)        no RC4 ciphers detected (OK)
+
+ Rating (experimental)
+
+ Rating specs (not complete)  SSL Labs's 'SSL Server Rating Guide' (version 2009r from 2025-05-16)
+ Specification documentation  https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide
+ Protocol Support (weighted)  0 (0)
+ Key Exchange     (weighted)  0 (0)
+ Cipher Strength  (weighted)  0 (0)
+ Final Score                  0
+ Overall Grade                M
+ Grade cap reasons            Grade capped to M. Domain name mismatch
+ Grade warning                TLS 1.3 is not supported
+
+> nikto -h http://www.itsecgames.com -o nikto_report.txt
+> sudo gvm-start [OPENVAS]
+> gobuster dir -u http://www.itsecgames.com -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o gobuster_report.txt
+
+
+
+
+
+
+
+
+
+

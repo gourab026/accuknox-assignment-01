@@ -1,0 +1,42 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb_report.txt
+START_TIME: Fri May  8 19:19:38 2026
+URL_BASE: http://www.itsecgames.com/
+WORDLIST_FILES: /usr/share/wordlists/dirb/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://www.itsecgames.com/ ----
+==> DIRECTORY: http://www.itsecgames.com/downloads/
+==> DIRECTORY: http://www.itsecgames.com/images/
++ http://www.itsecgames.com/index.htm (CODE:200|SIZE:3651)
+==> DIRECTORY: http://www.itsecgames.com/javascript/
+==> DIRECTORY: http://www.itsecgames.com/js/
++ http://www.itsecgames.com/server-status (CODE:403|SIZE:199)
+==> DIRECTORY: http://www.itsecgames.com/stylesheets/
+
+---- Entering directory: http://www.itsecgames.com/downloads/ ----
+
+---- Entering directory: http://www.itsecgames.com/images/ ----
++ http://www.itsecgames.com/images/favicon.ico (CODE:200|SIZE:1150)
+
+---- Entering directory: http://www.itsecgames.com/javascript/ ----
+==> DIRECTORY: http://www.itsecgames.com/javascript/jquery/
+
+---- Entering directory: http://www.itsecgames.com/js/ ----
+
+---- Entering directory: http://www.itsecgames.com/stylesheets/ ----
+
+(!) FATAL: Too many errors connecting to host
+    (Possible cause: OPERATION TIMEOUT)
+
+-----------------
+END_TIME: Fri May  8 20:28:58 2026
+DOWNLOADED: 24103 - FOUND: 3

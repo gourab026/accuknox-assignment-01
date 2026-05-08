@@ -1,0 +1,14 @@
+Job Title: Security Officer Trainee
+Problem Statement:
+We need to evaluate the security posture of a publicly hosted endpoint. Please perform a comprehensive scan of the following endpoint:
+
+http://www.itsecgames.com/
+
+Objectives:
+
+Identify vulnerabilities on this domain name. You can use any publicly available tools. But you have to pull up the report and show the vulnerability reported by the tool.
+Detect potential vulnerabilities (misconfigurations, outdated software, CVEs).
+Assess SSL/TLS configuration and certificate health.
+Highlight any exposed information that could aid attackers (headers, banners, error messages).
+Provide a prioritized list of findings along with mitigation recommendations.
+

@@ -1,0 +1,2 @@
+[CVE-2023-48795] [javascript] [medium] 31.3.96.40:22 ["Vulnerable to Terrapin"]
+[ssh-sha1-hmac-algo] [javascript] [info] 31.3.96.40:22
